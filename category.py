@@ -22,3 +22,10 @@ class Category:
     
     def __repr__(self) -> str:
         return f"<Category {self.name}>"
+    
+    def update_category(self, name, description):
+        self.name = name
+        self.description = description
+
+        if len(self.name) > 255:
+            raise ValueError("name must have less than 255 characters")

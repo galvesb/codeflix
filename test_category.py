@@ -37,4 +37,17 @@ class TestCategory:
         assert category.name == "name"
         assert category.description == "description"
         assert category.is_active is False
+
+class TestUpdateCategory:
+    def test_update_category_with_name_and_description(self):
+        category = Category(name="name", description="description")
+        category.update_category(name="new name", description="new description")
+        assert category.name == "new name"
+        assert category.description == "new description"
+
+    def test_update_category_with_invalid_name_raise_exception(self):
+        category = Category(name="name", description="description")
+        with pytest.raises(ValueError, match="name must have less than 255 characters"):
+            category.update_category(name="a" * 256, description="description")
+
             
