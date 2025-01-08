@@ -1,6 +1,6 @@
 import uuid
 import pytest
-from category import Category
+from src.core.category.domain.category import Category
 
 class TestCategory:
     def test_name_is_required(self):
@@ -38,6 +38,10 @@ class TestCategory:
         assert category.description == "description"
         assert category.is_active is False
 
+    def test_cannot_create_category_with_empty_name(self):
+        with pytest.raises(ValueError, match="name is required"):
+            Category(name="")
+
 class TestUpdateCategory:
     def test_update_category_with_name_and_description(self):
         category = Category(name="name", description="description")
@@ -49,5 +53,20 @@ class TestUpdateCategory:
         category = Category(name="name", description="description")
         with pytest.raises(ValueError, match="name must have less than 255 characters"):
             category.update_category(name="a" * 256, description="description")
+
+    def test_cannot_update_category_with_empty_name(self):
+        category = Category(name="name", description="description")
+        with pytest.raises(ValueError, match="name is required"):
+            category.update_category(name="", description="description")
+
+class TestActivate:
+    def test_activate_category(self): 
+        category = Category(name="Filme", description="filme em geral", is_active=False)
+
+        assert category.is_active is False
+
+        category.activate()
+
+        assert category.is_active is True
 
             
