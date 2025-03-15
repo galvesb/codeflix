@@ -27,6 +27,12 @@ class Category:
     def __repr__(self) -> str:
         return f"<Category {self.name}>"
     
+    def __eq__(self, other):
+        if not isinstance(other, Category):
+            return False
+
+        return self.id == other.id
+    
     def update_category(self, name, description):
         self.name = name
         self.description = description
@@ -35,5 +41,10 @@ class Category:
 
     def activate(self):
         self.is_active = True
+
+        self.validate()
+
+    def deactivate(self):
+        self.is_active = False
 
         self.validate()
