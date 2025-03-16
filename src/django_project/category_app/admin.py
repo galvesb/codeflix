@@ -24,4 +24,10 @@ class CategoryAdmin(admin.ModelAdmin):
     def deactivate(self, request, queryset):
         queryset.update(is_active=False)
 
+    activate.short_description = 'Ativar categorias selecionadas'
+    deactivate.short_description = 'Desativar categorias selecionadas'
+
+
+
 admin.site.register(Category, CategoryAdmin)
+

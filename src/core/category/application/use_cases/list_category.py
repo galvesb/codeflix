@@ -29,7 +29,7 @@ class ListCategory:
     def execute(self, request: ListCategoryRequest) -> ListCategoryResponse:
         categories = self.repository.list()
         
-        a=  ListCategoryResponse(
+        return ListCategoryResponse(
             data=[
                 CategoryOutPut(
                     id=category.id,
@@ -39,5 +39,3 @@ class ListCategory:
                 ) for category in categories
             ]
         )
-
-        return a

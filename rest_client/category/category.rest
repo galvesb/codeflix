@@ -4,3 +4,8 @@
 ### Requisição GET para o endpoint de categorias
 GET {{baseUrl}}/categories/
 Accept: application/json
+
+
+### Requisição GET para o endpoint de categorias get by id
+GET {{baseUrl}}/categories/7d2bab9b-80b1-45d9-ae02-bf5145cac123/
+Accept: application/json
