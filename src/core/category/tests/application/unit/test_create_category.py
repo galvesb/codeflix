@@ -16,7 +16,7 @@ class TestCreateCategory:
         category_id = use_case.execute(request)
 
         assert category_id is not None
-        assert isinstance(category_id, UUID)
+        assert isinstance(category_id.id, UUID)
         assert mock_repository.save.call_count == 1
 
     def test_create_category_with_invalid_data(self):

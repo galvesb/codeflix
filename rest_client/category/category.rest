@@ -7,5 +7,45 @@ Accept: application/json
 
 
 ### Requisição GET para o endpoint de categorias get by id
-GET {{baseUrl}}/categories/7d2bab9b-80b1-45d9-ae02-bf5145cac123/
+GET {{baseUrl}}/categories/d249f13f-5e1f-44c2-bcfe-d88a22e9d653/
+Accept: application/json
+
+
+### Requisição para criar categoria
+POST {{baseUrl}}/categories/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Eletrônicos",
+  "description": "Categoria para produtos eletrônicos e gadgets."
+}
+
+
+### atualiza categoria
+
+PUT {{baseUrl}}/categories/d249f13f-5e1f-44c2-bcfe-d88a22e9d653/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Eletrônicos e Acessórios",
+  "description": "Categoria para produtos eletrônicos, gadgets e acessórios.",
+  "is_active": true
+}
+
+### PATCH
+
+PATCH {{baseUrl}}/categories/d249f13f-5e1f-44c2-bcfe-d88a22e9d653/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "description": "Nova descrição atualizada para a categoria."
+}
+
+
+### DELETE
+
+DELETE {{baseUrl}}/categories/586103c1-972f-4d3a-8664-0b31d75530df/
 Accept: application/json
